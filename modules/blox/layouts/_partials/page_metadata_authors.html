@@ -12,7 +12,8 @@
     {{- $profile := partial "functions/get_author_profile" (dict "slug" $slug "title" $raw) -}}
     {{- $termPage := site.GetPage (printf "/authors/%s" $slug) -}}
     {{- $display := $profile.title | default $raw -}}
-    {{- $highlight_name := false -}}
+    {{- $highlight_name := $profile.is_owner | default false -}}
+    {{- if ne $profile.highlight_name nil -}}{{- $highlight_name = $profile.highlight_name -}}{{- end -}}
 
     {{- if gt $index 0 }}, {{ end -}}
     <span {{ if $highlight_name }}class="font-bold"{{end}}>

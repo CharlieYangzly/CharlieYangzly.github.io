@@ -14,6 +14,7 @@ Output (dict):
 - ids: map (optional)
 - links: array (optional)
 - is_owner: bool (optional)
+- highlight_name: bool (optional) – emphasise this author's name in author lists; when unset, defaults to is_owner
 - has_data: bool (true if found in data/authors)
 - avatar: resource (optional) – matching assets/media/authors/<slug>.*
 */}}
@@ -78,6 +79,7 @@ Output (dict):
 {{- $ids := $data.ids -}}
 {{- $links := $data.links -}}
 {{- $isOwner := or ($data.is_owner) ($data.superuser) -}}
+{{- $highlightName := $data.highlight_name -}}
 {{- $pronouns := $namePronouns | default $data.pronouns -}}
 {{- $userGroups := $data.user_groups -}}
 {{- $interests := $data.interests -}}
@@ -129,6 +131,7 @@ Output (dict):
   "weight" $weight
   "postnominals" $postnominals
   "is_owner" $isOwner
+  "highlight_name" $highlightName
   "has_data" (not (eq $hasData nil))
   "avatar" $avatar
 -}}
