@@ -16,7 +16,7 @@
 
     {{- if gt $index 0 }}, {{ end -}}
     <span {{ if $highlight_name }}class="font-bold"{{end}}>
-      {{- if $termPage -}}
+      {{- if and $termPage $termPage.RelPermalink -}}
         <a href="{{ $termPage.RelPermalink }}">{{ $display }}</a>
       {{- else -}}
         {{ $display }}
