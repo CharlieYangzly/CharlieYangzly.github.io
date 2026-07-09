@@ -12,6 +12,9 @@
 - id: back_to_top
   translation: Back to top
 
+- id: skip_to_main_content
+  translation: Skip to main content
+
 - id: home
   translation: Home
 
