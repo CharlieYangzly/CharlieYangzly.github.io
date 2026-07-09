@@ -30,7 +30,6 @@
 
 {{ $links := slice }}
 {{ $seen := newScratch }}
-{{ $seen.Set "set" (dict) }}
 
 {{/* 1) Author-provided links (array order) */}}
 {{ with $page.Params.links }}
