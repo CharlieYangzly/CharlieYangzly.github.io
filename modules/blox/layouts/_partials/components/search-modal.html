@@ -270,6 +270,7 @@
       allFilters: [],
       trendingSearches: {{ site.Params.hugoblox.search.suggestions | default (slice "Search term 1" "Search term 2") | jsonify }},
       pagefind: null,
+      pagefindLoading: false,
       pagefindModulePath: window.hbb?.assetPaths?.pagefind ?? '/pagefind/pagefind.js',
       
       // i18n translations for content types
@@ -279,22 +280,13 @@
         'docs': {{ i18n "docs" | default "Documentation" | jsonify }}
       },
       
-      async init() {
-        // Initialize Pagefind
-        try {
-          this.pagefind = await import(this.pagefindModulePath);
-          await this.pagefind.init();
-          console.log('✓ Pagefind initialized');
-          
-          // Load available filters
-          await this.loadFilters();
-        } catch (error) {
-          console.error('Failed to initialize Pagefind:', error);
-        }
-        
+      init() {
         // Keyboard navigation
         this.$watch('$store.search.open', (open) => {
           if (open) {
+            // Load Pagefind lazily the first time the modal opens, so the search
+            // index isn't fetched on every page view.
+            this.ensurePagefind();
             this.$nextTick(() => this.$refs.searchInput?.focus());
             document.body.style.overflow = 'hidden';
           } else {
@@ -394,16 +386,36 @@
         });
       },
       
+      // Load + initialise Pagefind once, on first use (first modal open, or a
+      // search if the user types before that load finishes).
+      async ensurePagefind() {
+        if (this.pagefind || this.pagefindLoading) return;
+        this.pagefindLoading = true;
+        try {
+          this.pagefind = await import(this.pagefindModulePath);
+          await this.pagefind.init();
+          await this.loadFilters();
+        } catch (error) {
+          console.error('Failed to initialize Pagefind:', error);
+        } finally {
+          this.pagefindLoading = false;
+        }
+      },
+
       async search() {
         if (!this.query.trim()) {
           this.results = [];
           this.hasSearched = false;
           return;
         }
-        
+
         this.loading = true;
         this.hasSearched = false;  // Reset until search completes
-        
+
+        // Ensure the index is loaded (the user may type before the open-load finishes).
+        await this.ensurePagefind();
+        if (!this.pagefind) { this.loading = false; return; }
+
         try {
           const options = {};
           
