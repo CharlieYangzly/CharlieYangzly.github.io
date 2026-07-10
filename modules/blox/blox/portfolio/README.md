@@ -43,6 +43,7 @@ A flexible, filterable portfolio block for showcasing work with Alpine.js-powere
       # text: "Browse All"  # Custom text
   design:
     columns: 3
+    aspect_ratio: photo  # Card image shape: photo (3:2), landscape, square, portrait, wide
     fallback_icon: code-bracket  # Or: academic-cap, paint-brush, camera, etc.
 ```
 
@@ -95,6 +96,7 @@ featured: true
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `columns` | integer | 3 | Grid columns (2, 3, or 4) |
+| `aspect_ratio` | string | `photo` | Card image shape — matches the crop to the box so images aren't double-cropped. One of `photo` (3:2), `landscape` (4:3), `square` (1:1), `portrait` (3:4), `wide` (16:9). |
 | `fallback_icon` | string | `code-bracket` | Icon shown when item has no image. Supports all Hugo Blox icon packs (hero, brands, devicon, emoji, custom). Format: `icon-name` or `pack/icon-name` |
 | `status_badge.enable` | boolean | true | Show or hide the status badge |
 

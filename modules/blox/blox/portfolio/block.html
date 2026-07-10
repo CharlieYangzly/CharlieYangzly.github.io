@@ -173,6 +173,28 @@
   {{ $fallback_icon = $fallback_raw }}
 {{ end }}
 
+{{/* Card image aspect ratio (square | landscape | portrait | wide | photo)
+     The chosen ratio drives BOTH the CSS aspect box and the `Fill` dimensions,
+     so the box always matches the crop (one predictable crop at any width /
+     column count). Every class string is written out literally so Tailwind's
+     scanner generates the utilities. Photo (3:2) is the default with a fixed 600x400 crop. */}}
+{{ $ratio_map := dict
+  "square"    (dict "class" "aspect-square" "fill" "600x600 webp")
+  "landscape" (dict "class" "aspect-[4/3]"  "fill" "600x450 webp")
+  "portrait"  (dict "class" "aspect-[3/4]"  "fill" "480x640 webp")
+  "wide"      (dict "class" "aspect-[16/9]" "fill" "800x450 webp")
+  "photo"     (dict "class" "aspect-[3/2]"  "fill" "600x400 webp")
+}}
+{{ $ratio_name := "photo" }}
+{{ $ratio_raw := index $design "aspect_ratio" }}
+{{ if eq (printf "%T" $ratio_raw) "string" }}
+  {{ $trimmed := lower (strings.TrimSpace $ratio_raw) }}
+  {{ if $trimmed }}{{ $ratio_name = $trimmed }}{{ end }}
+{{ end }}
+{{ $ratio := index $ratio_map $ratio_name | default (index $ratio_map "photo") }}
+{{ $ratio_class := index $ratio "class" }}
+{{ $ratio_fill := index $ratio "fill" }}
+
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16" x-data="{ activeFilter: {{ $default_tag | jsonify }} }">
   
   {{/* Header */}}
@@ -271,7 +293,7 @@
         class="group relative flex flex-col bg-white dark:bg-white/[0.03] backdrop-blur-xl rounded-2xl border border-gray-200 dark:border-white/[0.08] overflow-hidden hover:border-primary-500/50 hover:bg-gray-50 dark:hover:bg-white/[0.06] transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/10 card-hover-lift"
       >
         {{/* Card Header / Image */}}
-        <div class="relative h-48 overflow-hidden">
+        <div class="relative {{ $ratio_class }} overflow-hidden">
           {{ $image := $item.Resources.GetMatch "{featured,cover,thumbnail}*" }}
           {{ if $image }}
             {{ if not (reflect.IsImageResourceProcessable $image) }}
@@ -281,7 +303,7 @@
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               >
             {{ else }}
-              {{ $img := $image.Fill "600x400 webp" }}
+              {{ $img := $image.Fill $ratio_fill }}
               <img 
                 src="{{ $img.RelPermalink }}" 
                 alt="{{ $item.Title }}"
