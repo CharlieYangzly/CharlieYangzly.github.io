@@ -6,6 +6,10 @@
     text-rendering: optimizelegibility;
     /* Apply the runtime font vars injected by Hugo's typography partial */
     font-family: var(--hb-font-body);
+    /* Root font size from `typography.sizes.base` (default 1rem). On the root
+       element rem resolves to the initial font-size, so the default respects the
+       user's browser preference while the config value scales the whole rem scale. */
+    font-size: var(--hb-font-size-base, 1rem);
   }
 
   body {
