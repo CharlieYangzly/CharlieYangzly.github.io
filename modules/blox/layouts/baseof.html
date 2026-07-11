@@ -7,6 +7,8 @@
       data-hbb-relurl="{{ "" | relURL }}">
   {{ partial "site_head" . }}
   <body class="bg-[var(--hb-color-background)] text-[var(--hb-color-foreground)] page-wrapper" id="top">
+    {{/* Skip link: first focusable element, visually hidden until focused (WCAG 2.4.1) */}}
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:font-medium focus:text-gray-900 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:bg-gray-800 dark:focus:text-white">{{ i18n "skip_to_main_content" | default "Skip to main content" }}</a>
     <div id="page-bg"></div>
     <div class="page-header {{ if site.Params.hugoblox.header.sticky }}sticky top-0 z-30{{ end }}">
       {{/* Load header block */}}
@@ -23,9 +25,9 @@
       {{ end }}
     </div>
     {{ $cover := partial "functions/get_cover_image.html" . }}
-    <div class="page-body {{if and (ne .Type "landing") (not $cover)}} my-10{{end}}">
+    <main id="main-content" class="page-body {{if and (ne .Type "landing") (not $cover)}} my-10{{end}}">
       {{ block "main" . }}{{ end }}
-    </div>
+    </main>
     <div class="page-footer">
       {{ partial "site_footer" . }}
     </div>
