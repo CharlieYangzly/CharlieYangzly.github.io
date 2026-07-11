@@ -5,8 +5,8 @@
   "packageManager": "pnpm@10.14.0",
   "description": "Markdown Slides template - host and share slide decks built with Hugo Blox",
   "scripts": {
-    "dev": "hugo server --disableFastRender",
-    "build": "hugo --minify && pnpm run pagefind",
+    "dev": "hugo && pagefind --site public --output-subdir ../static/pagefind && hugo server --disableFastRender",
+    "build": "hugo --minify && pagefind --site public",
     "pagefind": "pagefind --site public"
   },
   "dependencies": {
