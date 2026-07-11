@@ -8,7 +8,7 @@ The Collection block is your ultimate content curation tool, designed to showcas
 
 - **Smart Filtering**: Filter by folders, tags, categories, authors, publication types, and more
 - **Flexible Sorting**: Sort by date, title, or any custom field in ascending or descending order
-- **Multiple Views**: Choose from card, compact, showcase, citation, list, or masonry layouts
+- **Multiple Views**: Choose from `card`, `article-grid`, `citation`, `date-title-summary`, `slides-gallery`, or `event-row` layouts — see [Available Views](#-available-views)
 - **Pagination Ready**: Built-in support for limiting items and pagination
 - **Archive Integration**: Automatic "See All" links to full archive pages
 - **Responsive Design**: Perfectly optimized for all screen sizes
@@ -20,6 +20,26 @@ The Collection block is your ultimate content curation tool, designed to showcas
 - **Project Galleries**: Present your portfolio work in stunning visual grids
 - **News & Updates**: Keep visitors informed with filtered content streams
 - **Content Archives**: Create organized content hubs by topic or category
+
+## 🖼️ Available Views
+
+Set `view` in a section's `_index.md` front matter (or `design.view` on a Collection block) to
+control how items are rendered. Views are resolved by name; an unrecognised value falls back to
+`card`.
+
+| `view` | Best for | Layout |
+|--------|----------|--------|
+| `card` _(default)_ | Blog posts, projects | Cover-image cards (title, summary, metadata) stacked in a single reading-width column. |
+| `article-grid` | Portfolios, showcases | The same cards arranged in a responsive multi-column grid (`columns` configurable). |
+| `citation` | Publications | Formatted APA/MLA citation rows (authors · year · title · venue) with attachment links. |
+| `date-title-summary` | News, changelogs | Minimal chronological list: date, title, and a short summary with a "Read more" link. |
+| `slides-gallery` | Slide decks | 16:9 thumbnails with a play overlay and slide count. |
+| `event-row` | Talks, events, press | Compact row: logo · title · date · location, with the summary beneath. |
+
+```yaml
+# In the collection's `_index.md` front matter:
+view: event-row
+```
 
 ## 🚀 Why Choose Collection Block?
 
