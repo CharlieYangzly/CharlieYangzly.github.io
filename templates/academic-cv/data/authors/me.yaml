@@ -1,6 +1,11 @@
 schema: hugoblox/author/v1
 slug: me
 is_owner: true
+# `highlight_name` (optional): make this author's name bold in citation /
+# publication author lists. When unset it inherits `is_owner` above — so by
+# default the owner's name is highlighted and co-authors' names are not.
+# Uncomment to override the default (`true` = always highlight, `false` = never):
+# highlight_name: false
 name:
   display: Dr. Alex Johnson
   given: Alex
