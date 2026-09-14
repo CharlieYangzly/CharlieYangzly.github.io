@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Narender Reddy Kangari
+title: Narender Reddy Kangari (He/Him)
 
 # Full name (for SEO)
 first_name: Narender Reddy
