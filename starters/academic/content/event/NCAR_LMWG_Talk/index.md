@@ -1,5 +1,5 @@
 ---
-title: CESM Land Model WG/ BGCWG meeting
+title: Invited talk at CESM Land Model WG/ BGCWG meeting 2024
 
 event: Land Model and Biogeochemistry Working Group Meeting 2024
 event_url: "https://www.cesm.ucar.edu/events/working-groups/2024/land-biogeochemistry"
