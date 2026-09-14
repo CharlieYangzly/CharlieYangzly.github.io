@@ -1,5 +1,5 @@
 ---
-title: EEO theory for photosynthesis and respiration in gridded standalone JULES for simulating better carbon fluxes
+title: Talk at EGU 2026 Session BG3.5
 
 event: EGU General Assembly 2026
 event_url: "https://www.egu26.eu/"
@@ -7,7 +7,7 @@ event_url: "https://www.egu26.eu/"
 
 location: Vienna, Austria
 
-summary: EEO theory for photosynthesis greatly improves the land model GPP estimates
+summary: EEO theory for photosynthesis and respiration in gridded standalone JULES for simulating better carbon fluxes
 abstract: 'Land surface models (LSMs) often exhibit substantial biases in simulating vegetation photosynthesis and respiration, largely due to their reliance on numerous plant functional type (PFT)–specific parameters. Recent advances based on Eco-Evolutionary Optimality (EEO) theory suggest that many of these parameters can be reduced, as vegetation carbon fluxes can be represented using universal optimal light and carboxylation conditions rather than prescribed PFT-dependent traits. Studies have demonstrated that EEO-based approaches perform remarkably well across a wide range of FLUXNET sites. In this study, we implement an EEO-based photosynthesis scheme within the gridded Joint UK Land Environment Simulator (JULES) to evaluate the scalability and performance of the theory at the global scale. This is a critical step beyond site-level evaluation of the theory, enabling assessment of EEO under diverse climatic and ecological conditions worldwide. We compare simulations from the EEO-enabled JULES configuration (JULES-EEO) against two model variants: JULES-NoAdap_NoAcclim, and JULES-Acclim; both of which rely on PFT-specific parameterizations. JULES-NoAdap_NoAcclim assumes no vegetation adaptation or acclimation, while JULES-Acclimation incorporates thermal acclimation following the Kumarathunge scheme. Through this intercomparison, we assess whether EEO can robustly reduce biases in global carbon flux simulations relative to conventional pft-parameter formulations. Superior performance of the EEO-based model offers the potential for improved computational efficiency by eliminating iterative, PFT-specific calculations, thereby enhancing overall model speed. The results provide new insights into the applicability of eco-evolutionary optimality theory at global scales and help identify potential pathways for further refinement of vegetation process representations in Earth system models.'
 
 # Talk start and end times.
