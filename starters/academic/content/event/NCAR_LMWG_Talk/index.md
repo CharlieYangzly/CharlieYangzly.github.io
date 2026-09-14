@@ -1,5 +1,5 @@
 ---
-title: Improving the representation of major Indian crops in Community Land Surface Model version 5.0 (CLM5) using site-scale cropdataset and evaluating the impact on surface fluxes
+title: CESM Land Model WG/ BGCWG meeting
 
 event: Land Model and Biogeochemistry Working Group Meeting 2024
 event_url: "https://www.cesm.ucar.edu/events/working-groups/2024/land-biogeochemistry"
@@ -7,7 +7,7 @@ event_url: "https://www.cesm.ucar.edu/events/working-groups/2024/land-biogeochem
 
 location: Remote (online)
 
-summary: The improvements made to the CLM5 model and its impact on surface fluxes
+summary: Improving the representation of major Indian crops in Community Land Surface Model version 5.0 (CLM5) using site-scale cropdataset and evaluating the impact on surface fluxes
 abstract: ''
 
 # Talk start and end times.
