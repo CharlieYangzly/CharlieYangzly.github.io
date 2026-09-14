@@ -42,5 +42,5 @@ main:
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/uploads/resume.pdf` and uncomment the lines below.
   - name: CV
-    url: uploads/CV_Reddy_KangariNarender_21Apr.pdf
+    url: uploads/CV_Narender_Kangari.pdf
     weight: 80
