@@ -83,7 +83,7 @@ email: 'narender.kangari@ncas.ac.uk'
 highlight_name: true
 ---
 **He/Him**
-{style="font-size: 0.85em; color: #666; margin-top: -0.5em;"}
+{style="font-size: 1em; color: #666; margin-top: 0.5em;"}
 
 I am a Research Scientist at the National Centre for Atmospheric Science, the Department of Meteorology, University of Reading. My current research is part of the CONCERTO project, which aims to improve the representation of vegetation in land surface models—specifically JULES (Joint UK Land Environment Simulator). The goal is to enhance the model’s ability to simulate terrestrial carbon, energy, and water fluxes accurately, ultimately leading to a more realistic depiction of land–atmosphere interactions. 
 {style="text-align: justify; font-size: 0.8em;"}
