@@ -28,9 +28,10 @@ bio: My research interests include land surface modeling, surface fluxes (water,
 
 # Interests to show in About widget
 interests:
-  - Land Surface modeling (CLM5, JULES, ISAM)
+  - Land Surface modeling (JULES, CLM5, and ISAM)
   - Carbon, energy, and water fluxes
   - Soil-Plant-Atmosphere interactions
+  - High-Resolution climate modeling 
 
 # Education to show in About widget
 education:
