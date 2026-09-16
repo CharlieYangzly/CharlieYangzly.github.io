@@ -67,7 +67,6 @@ sections:
       #   Leave other parameters empty if not required.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
-
         - certificate_url: ''
           date_end: '2026-03-13T17:00:00Z'
           date: '2026-03-11T12:00:00Z'
@@ -75,7 +74,6 @@ sections:
           organisation: 'DiRAC High Performance Computing Facility'
           organisation_url: ''
           title: Cross-Community AMD GPU Hackathon
-    
     
         - certificate_url: ''
           date_end: '2025-06-09T00:00:00Z'
